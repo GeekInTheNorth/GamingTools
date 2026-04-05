@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/api/">
+    <Project Path="api/GamingTools.Api.csproj" />
+  </Folder>
+</Solution>
