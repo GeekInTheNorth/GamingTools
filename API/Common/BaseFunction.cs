@@ -105,11 +105,17 @@ public abstract class BaseFunction
         return response;
     }
 
+    private static readonly JsonSerializerOptions ReadJsonOptions = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+    };
+
     protected static async Task<TModel?> GetModelAsync<TModel>(HttpRequestData request)
     {
         try
         {
-            return await request.ReadFromJsonAsync<TModel>();
+            return await request.ReadFromJsonAsync<TModel>(new JsonObjectSerializer(ReadJsonOptions));
         }
         catch (Exception ex)
         {

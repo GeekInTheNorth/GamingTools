@@ -1,0 +1,88 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "azurite:start",
+      "type": "shell",
+      "command": "azurite",
+      "args": [
+        "--silent",
+        "--location", ".azurite",
+        "--debug", ".azurite/debug.log"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "azurite",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^Azurite",
+          "endsPattern": "^Azurite\\s+.+successfully listening"
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "group": "debug-services"
+      }
+    },
+    {
+      "label": "api:build",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "--configuration", "Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      },
+      "group": "build",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "func:start-debug",
+      "type": "shell",
+      "command": "func",
+      "args": [
+        "start",
+        "--port", "7071",
+        "--dotnet-isolated-debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/api"
+      },
+      "isBackground": true,
+      "dependsOn": [
+        "azurite:start",
+        "api:build"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": {
+        "owner": "func-dotnet-isolated",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*Azure Functions Core Tools",
+          "endsPattern": "^.*Waiting for debugger to attach"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "debug-services"
+      }
+    }
+  ]
+}

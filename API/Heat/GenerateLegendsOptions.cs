@@ -46,4 +46,6 @@ public class GenerateLegendsOptions
     /// Car #14, Yellow
     /// </summary>
     public bool UseYellow { get; set; } = true;
+
+    public bool HasDrivers => UseSilver || UseRed || UseOrange || UseGreen || UseBlack || UsePurple || UseBlue || UseYellow;
 }

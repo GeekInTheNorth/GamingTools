@@ -24,15 +24,16 @@ public class LegendsDeckGenerator
     {
         var randomGenerator = new Random();
 
-        var deck = Enumerable.Range(1, 20).Select(x => GenerateCard(options)).ToList();
+        var deck = Enumerable.Range(1, 20).Select(x => GenerateCard(x, options)).ToList();
 
         return new LegendsDeck(deck);
     }
 
-    private LegendsCard GenerateCard(GenerateLegendsOptions options)
+    private LegendsCard GenerateCard(int roundNumber, GenerateLegendsOptions options)
     {
         return new LegendsCard
         {
+            RoundNumber = roundNumber,
             Drivers = [.. GenerateDrivers(options)]
         };
     }
