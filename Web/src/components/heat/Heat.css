@@ -1,0 +1,175 @@
+/* Form */
+.legends-form {
+    margin: 1.5rem 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+.form-group select {
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
+.form-group fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.75rem;
+}
+
+.driver-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.5rem;
+}
+
+.driver-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.driver-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid #666;
+}
+
+.driver-silver  { background: #c0c0c0; }
+.driver-red     { background: #d32f2f; }
+.driver-orange  { background: #ef6c00; }
+.driver-green   { background: #388e3c; }
+.driver-black   { background: #212121; }
+.driver-purple  { background: #7b1fa2; }
+.driver-blue    { background: #1565c0; }
+.driver-yellow  { background: #f9a825; }
+
+.legends-form button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.legends-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+/* Deck */
+.legends-deck {
+    margin-top: 2rem;
+}
+
+.deck-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.deck-controls h2 {
+    margin: 0;
+}
+
+.deck-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.deck-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.deck-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Cards */
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.legends-card {
+    border: 2px solid #333;
+    border-radius: 8px;
+    min-height: 120px;
+    padding: 0.75rem;
+}
+
+.legends-card.face-down {
+    background: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.legends-card.face-up {
+    background: #fafafa;
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-drivers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.card-driver {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.driver-bg-silver  { background: #9e9e9e; color: #000; }
+.driver-bg-red     { background: #d32f2f; }
+.driver-bg-orange  { background: #ef6c00; }
+.driver-bg-green   { background: #388e3c; }
+.driver-bg-black   { background: #212121; }
+.driver-bg-purple  { background: #7b1fa2; }
+.driver-bg-blue    { background: #1565c0; }
+.driver-bg-yellow  { background: #f9a825; color: #000; }
