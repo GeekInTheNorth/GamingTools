@@ -22,8 +22,6 @@ public class LegendsDeckGenerator
 
     public LegendsDeck Generate(GenerateLegendsOptions options)
     {
-        var randomGenerator = new Random();
-
         var deck = Enumerable.Range(1, 20).Select(x => GenerateCard(x, options)).ToList();
 
         return new LegendsDeck(deck);
@@ -31,60 +29,62 @@ public class LegendsDeckGenerator
 
     private LegendsCard GenerateCard(int roundNumber, GenerateLegendsOptions options)
     {
+        var speeds = GenerateSpeedArray(options.Difficulty);
+        randomGenerator.Shuffle(speeds);
+        randomGenerator.Shuffle(speeds);
+
         return new LegendsCard
         {
             RoundNumber = roundNumber,
-            Drivers = [.. GenerateDrivers(options)]
+            Drivers = [.. GenerateDrivers(options, speeds)]
         };
     }
 
-    private IEnumerable<LegendsDriver> GenerateDrivers(GenerateLegendsOptions options)
+    private IEnumerable<LegendsDriver> GenerateDrivers(GenerateLegendsOptions options, int[] speeds)
     {
         if (options.UseSilver)
         {
-            yield return GenerateDriver(options.Difficulty, "Silver", 2);
+            yield return GenerateDriver(options.Difficulty, speeds[0], "Silver", 2);
         }
 
         if (options.UseRed)
         {
-            yield return GenerateDriver(options.Difficulty, "Red", 3);
+            yield return GenerateDriver(options.Difficulty, speeds[1], "Red", 3);
         }
 
         if (options.UseOrange)
         {
-            yield return GenerateDriver(options.Difficulty, "Orange", 4);
+            yield return GenerateDriver(options.Difficulty, speeds[2], "Orange", 4);
         }
 
         if (options.UseGreen)
         {
-            yield return GenerateDriver(options.Difficulty, "Green", 5);
+            yield return GenerateDriver(options.Difficulty, speeds[3], "Green", 5);
         }
 
         if (options.UseBlack)
         {
-            yield return GenerateDriver(options.Difficulty, "Black", 7);
+            yield return GenerateDriver(options.Difficulty, speeds[4], "Black", 7);
         }
 
         if (options.UsePurple)
         {
-            yield return GenerateDriver(options.Difficulty, "Purple", 9);
+            yield return GenerateDriver(options.Difficulty, speeds[5], "Purple", 9);
         }
 
         if (options.UseBlue)
         {
-            yield return GenerateDriver(options.Difficulty, "Blue", 10);
+            yield return GenerateDriver(options.Difficulty, speeds[6], "Blue", 10);
         }
 
         if (options.UseYellow)
         {
-            yield return GenerateDriver(options.Difficulty, "Yellow", 14);
+            yield return GenerateDriver(options.Difficulty, speeds[7], "Yellow", 14);
         }
     }
 
-    private LegendsDriver GenerateDriver(LegendDifficulty difficulty, string name, int number)
+    private static LegendsDriver GenerateDriver(LegendDifficulty difficulty, int speed, string name, int number)
     {
-        var speed = GenerateSpeed(difficulty);
-
         return new LegendsDriver
         {
             Colour = name,
@@ -135,14 +135,14 @@ public class LegendsDeckGenerator
         return 0;
     }
 
-    private int GenerateSpeed(LegendDifficulty difficulty)
+    private static int[] GenerateSpeedArray(LegendDifficulty difficulty)
     {
         return difficulty switch
         {
-            LegendDifficulty.Easy => randomGenerator.Next(8, 16),
-            LegendDifficulty.Hard => randomGenerator.Next(12, 20),
-            LegendDifficulty.Legendary => randomGenerator.Next(14, 22),
-            _ => randomGenerator.Next(10, 19),
+            LegendDifficulty.Easy => [.. Enumerable.Range(8, 10)],
+            LegendDifficulty.Hard => [.. Enumerable.Range(12, 9)],
+            LegendDifficulty.Legendary => [.. Enumerable.Range(14, 8)],
+            _ => [.. Enumerable.Range(10, 10)],
         };
     }
 }
