@@ -102,32 +102,32 @@ public class LegendsDeckGenerator
 
         if (difficulty == LegendDifficulty.Easy)
         {
-            fastestThreshold = 15;
-            fastThreshold = 12;
-            midThreshold = 9;
+            fastestThreshold = 16;
+            fastThreshold = 13;
+            midThreshold = 10;
         } else if (difficulty == LegendDifficulty.Hard)
         {
-            fastestThreshold = 18;
-            fastThreshold = 16;
+            fastestThreshold = 19;
+            fastThreshold = 17;
             midThreshold = 14;
         } else if (difficulty == LegendDifficulty.Legendary)
         {
-            fastestThreshold = 21;
-            fastThreshold = 19;
-            midThreshold = 17;
+            fastestThreshold = 20;
+            fastThreshold = 18;
+            midThreshold = 16;
         }
 
-        if (speed > fastestThreshold)
+        if (speed >= fastestThreshold)
         {
             return 3;
         }
 
-        if (speed > fastThreshold)
+        if (speed >= fastThreshold)
         {
             return 2;
         }
 
-        if (speed > midThreshold)
+        if (speed >= midThreshold)
         {
             return 1;
         }
