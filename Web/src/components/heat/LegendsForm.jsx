@@ -18,7 +18,7 @@ const difficulties = [
   { value: 3, label: 'Legendary' },
 ];
 
-function LegendsForm({ onGenerate, loading }) {
+function LegendsForm({ onGenerate }) {
   const [difficulty, setDifficulty] = useState(0);
   const [selectedDrivers, setSelectedDrivers] = useState(
     Object.fromEntries(drivers.map(d => [d.key, true]))
@@ -67,8 +67,8 @@ function LegendsForm({ onGenerate, loading }) {
         </div>
       </fieldset>
 
-      <button type="submit" disabled={loading || !hasDrivers}>
-        {loading ? 'Generating...' : 'Generate Deck'}
+      <button type="submit" disabled={!hasDrivers}>
+        Generate Deck
       </button>
     </form>
   );
