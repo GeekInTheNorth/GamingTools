@@ -24,8 +24,13 @@ function LegendsDeck({ cards }) {
     <div className="legends-deck">
       <div className="deck-controls">
         <h2>Legends Deck ({revealedCount} / {cards.length})</h2>
-        <button onClick={reset} disabled={revealedCount === 0}>
-          Reset
+        <button
+          type="button"
+          className="reset-button"
+          onClick={reset}
+          disabled={revealedCount === 0}
+        >
+          Reset Deck
         </button>
       </div>
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import HelmetIcon from './HelmetIcon';
 
 const drivers = [
   { key: 'useSilver', label: 'Silver', number: 2 },
@@ -37,37 +38,46 @@ function LegendsForm({ onGenerate }) {
 
   return (
     <form className="legends-form" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="difficulty">Difficulty</label>
-        <select
-          id="difficulty"
-          value={difficulty}
-          onChange={e => setDifficulty(Number(e.target.value))}
-        >
+      <div className="form-section">
+        <div className="form-section-label">Difficulty</div>
+        <div className="difficulty-options" role="radiogroup" aria-label="Difficulty">
           {difficulties.map(d => (
-            <option key={d.value} value={d.value}>{d.label}</option>
-          ))}
-        </select>
-      </div>
-
-      <fieldset className="form-group">
-        <legend>Legends Drivers</legend>
-        <div className="driver-checkboxes">
-          {drivers.map(d => (
-            <label key={d.key} className="driver-checkbox">
-              <input
-                type="checkbox"
-                checked={selectedDrivers[d.key]}
-                onChange={() => toggleDriver(d.key)}
-              />
-              <span className={`driver-swatch driver-${d.label.toLowerCase()}`} />
-              #{d.number} {d.label}
-            </label>
+            <button
+              type="button"
+              key={d.value}
+              role="radio"
+              aria-checked={difficulty === d.value}
+              className={`difficulty-option${difficulty === d.value ? ' selected' : ''}`}
+              onClick={() => setDifficulty(d.value)}
+            >
+              {d.label}
+            </button>
           ))}
         </div>
-      </fieldset>
+      </div>
 
-      <button type="submit" disabled={!hasDrivers}>
+      <div className="form-section">
+        <div className="form-section-label">Legends Drivers</div>
+        <div className="driver-tiles">
+          {drivers.map(d => {
+            const selected = selectedDrivers[d.key];
+            return (
+              <button
+                type="button"
+                key={d.key}
+                className={`driver-tile${selected ? ' selected' : ''}`}
+                aria-pressed={selected}
+                onClick={() => toggleDriver(d.key)}
+              >
+                <HelmetIcon colour={d.label} />
+                <span className="driver-tile-label">#{d.number} {d.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <button type="submit" className="generate-button" disabled={!hasDrivers}>
         Generate Deck
       </button>
     </form>
