@@ -12,7 +12,6 @@ function HeatLegendsGenerator() {
 
   return (
     <div className="heat-legends-generator">
-      <h1>Heat: Legends Deck Generator</h1>
       <LegendsForm onGenerate={handleGenerate} />
       {deck && <LegendsDeck cards={deck} />}
     </div>
