@@ -8,6 +8,7 @@ export const HELMET_COLOURS = {
   black: '#212121',
   purple: '#7b1fa2',
   blue: '#1565c0',
+  white: '#f5f5f5',
   yellow: '#f9a825',
 };
 

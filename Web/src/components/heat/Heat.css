@@ -98,6 +98,14 @@
     letter-spacing: 0.02em;
 }
 
+.driver-tile-expansion {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: #6a3a00;
+    letter-spacing: 0.02em;
+    margin-top: 0.1rem;
+}
+
 .generate-button {
     align-self: flex-start;
     padding: 0.65rem 1.75rem;
@@ -370,4 +378,16 @@
     font-weight: bold;
     font-size: 0.9rem;
     color: #1a1a1a;
+}
+
+@media (max-width: 600px) {
+    .deck-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .current-card-slot {
+        max-width: none;
+        width: 100%;
+    }
 }

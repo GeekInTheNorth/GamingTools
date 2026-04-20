@@ -13,6 +13,7 @@ const DRIVERS = [
   { key: 'useBlack', colour: 'Black', number: 7 },
   { key: 'usePurple', colour: 'Purple', number: 9 },
   { key: 'useBlue', colour: 'Blue', number: 10 },
+  { key: 'useWhite', colour: 'White', number: 11 },
   { key: 'useYellow', colour: 'Yellow', number: 14 },
 ];
 
@@ -25,6 +26,7 @@ const DEFAULT_OPTIONS = {
   useBlack: true,
   usePurple: true,
   useBlue: true,
+  useWhite: true,
   useYellow: true,
 };
 
@@ -86,7 +88,7 @@ function generateSpeedArray(difficulty) {
     case LegendDifficulty.Hard:
       return range(12, 9);
     case LegendDifficulty.Legendary:
-      return range(14, 8);
+      return range(14, 9);
     default:
       return range(10, 10);
   }

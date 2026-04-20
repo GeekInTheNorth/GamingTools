@@ -4,11 +4,12 @@ import HelmetIcon from './HelmetIcon';
 const drivers = [
   { key: 'useSilver', label: 'Silver', number: 2 },
   { key: 'useRed', label: 'Red', number: 3 },
-  { key: 'useOrange', label: 'Orange', number: 4 },
+  { key: 'useOrange', label: 'Orange', number: 4, expansion: 'Heavy Rain' },
   { key: 'useGreen', label: 'Green', number: 5 },
   { key: 'useBlack', label: 'Black', number: 7 },
-  { key: 'usePurple', label: 'Purple', number: 9 },
+  { key: 'usePurple', label: 'Purple', number: 9, expansion: 'Tunnel Vision' },
   { key: 'useBlue', label: 'Blue', number: 10 },
+  { key: 'useWhite', label: 'White', number: 11, expansion: 'Rocky Road' },
   { key: 'useYellow', label: 'Yellow', number: 14 },
 ];
 
@@ -71,6 +72,7 @@ function LegendsForm({ onGenerate }) {
               >
                 <HelmetIcon colour={d.label} />
                 <span className="driver-tile-label">#{d.number} {d.label}</span>
+                <span className="driver-tile-expansion">{d.expansion || '\u00A0'}</span>
               </button>
             );
           })}
