@@ -1,0 +1,8 @@
+{
+  "name": "gaming-tools",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cd Web && npm run dev",
+    "build": "cd Web && npm run build"
+  }
+}
