@@ -17,36 +17,30 @@ function RoutesWave({ players, scores, updatePlayerScore }) {
 
   return (
     <div className="routes-wave">
-      <div className="routes-legend">
-        <span>Enter the count of completed routes per length for each player.</span>
-        <ul className="routes-points-key">
-          {ROUTE_LENGTHS.map(l => (
-            <li key={l}>Length {l} = {ROUTE_POINTS[l]} pts</li>
-          ))}
-        </ul>
-      </div>
+      <p className="wave-instruction">
+        For each player, choose how many routes of each length they completed.
+      </p>
+      <ul className="routes-points-key">
+        {ROUTE_LENGTHS.map(l => (
+          <li key={l}>Length {l} = {ROUTE_POINTS[l]} pt{ROUTE_POINTS[l] === 1 ? '' : 's'}</li>
+        ))}
+      </ul>
 
-      <div className="routes-table">
-        <div className="routes-header">
-          <div className="routes-header-cell player-cell">Player</div>
-          {ROUTE_LENGTHS.map(l => (
-            <div key={l} className="routes-header-cell">{l}</div>
-          ))}
-          <div className="routes-header-cell subtotal-cell">Subtotal</div>
-        </div>
-
-        {players.map(p => {
-          const routes = scores[p.id].routes;
-          const subtotal = scoreRoutes(routes);
-          return (
-            <div key={p.id} className="routes-row">
-              <div className="routes-cell player-cell">
-                <PlayerLabel player={p} />
-              </div>
+      {players.map(p => {
+        const routes = scores[p.id].routes;
+        const subtotal = scoreRoutes(routes);
+        return (
+          <section key={p.id} className="player-card">
+            <header className="player-card-header">
+              <PlayerLabel player={p} />
+              <span className="player-card-subtotal positive">+{subtotal} pts</span>
+            </header>
+            <div className="route-length-grid">
               {ROUTE_LENGTHS.map(l => {
                 const max = maxForLength(l);
                 return (
-                  <div key={l} className="routes-cell">
+                  <label key={l} className="route-length-cell">
+                    <span className="route-length-label">Length {l}</span>
                     <select
                       className="route-select"
                       value={routes[l]}
@@ -57,14 +51,13 @@ function RoutesWave({ players, scores, updatePlayerScore }) {
                         <option key={n} value={n}>{n}</option>
                       ))}
                     </select>
-                  </div>
+                  </label>
                 );
               })}
-              <div className="routes-cell subtotal-cell">{subtotal}</div>
             </div>
-          );
-        })}
-      </div>
+          </section>
+        );
+      })}
     </div>
   );
 }

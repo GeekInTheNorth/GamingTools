@@ -22,10 +22,10 @@ function FailedTicketsWave({ players, scores, updatePlayerScore }) {
         const counts = scores[p.id].failedTickets;
         const subtotal = scoreTicketCounts(counts);
         return (
-          <section key={p.id} className="tickets-player-section">
-            <header className="tickets-player-header">
+          <section key={p.id} className="player-card">
+            <header className="player-card-header">
               <PlayerLabel player={p} />
-              <span className="tickets-subtotal negative">
+              <span className="player-card-subtotal negative">
                 {subtotal === 0 ? '0' : `−${subtotal}`} pts
               </span>
             </header>

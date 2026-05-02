@@ -154,37 +154,85 @@
     border-color: #2c3e50;
 }
 
-.ticket-to-ride .player-colour-select {
+.ticket-to-ride .colour-select {
+    position: relative;
+    display: inline-block;
+}
+
+.ticket-to-ride .colour-select-trigger {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.25rem 0.5rem;
+    gap: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    min-width: 8.5rem;
     border: 2px solid #d9b976;
     border-radius: 6px;
     background: #fff;
-}
-
-.ticket-to-ride .player-colour-select.has-error {
-    border-color: #c0392b;
-}
-
-.ticket-to-ride .player-colour-select select {
-    border: none;
-    background: transparent;
     font-family: inherit;
     font-size: 0.9rem;
     font-weight: bold;
     color: #2c3e50;
-    outline: none;
     cursor: pointer;
 }
 
-.ticket-to-ride .player-colour-swatch {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    display: inline-block;
+.ticket-to-ride .colour-select.has-error .colour-select-trigger {
+    border-color: #c0392b;
+}
+
+.ticket-to-ride .colour-select-trigger:focus-visible {
+    outline: none;
+    border-color: #2c3e50;
+}
+
+.ticket-to-ride .colour-select-name {
+    flex: 1;
+    text-align: left;
+}
+
+.ticket-to-ride .colour-select-caret {
+    font-size: 0.75rem;
+    color: #6a3a00;
+    line-height: 1;
+}
+
+.ticket-to-ride .colour-select-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0.25rem 0 0 0;
+    padding: 0.25rem;
+    list-style: none;
+    background: #fff;
+    border: 2px solid #d9b976;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.ticket-to-ride .colour-select-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.ticket-to-ride .colour-select-option:hover {
+    background: #fdecd2;
+}
+
+.ticket-to-ride .colour-select-option.selected {
+    background: #2c3e50;
+    color: #fff7e6;
 }
 
 .ticket-to-ride .setup-error {
@@ -319,22 +367,13 @@
     gap: 0.75rem;
 }
 
-.ticket-to-ride .routes-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    align-items: center;
-    font-size: 0.85rem;
-    color: #6a3a00;
-}
-
 .ticket-to-ride .routes-points-key {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .ticket-to-ride .routes-points-key li {
@@ -342,71 +381,38 @@
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
     font-weight: bold;
+    font-size: 0.8rem;
     color: #2c3e50;
 }
 
-.ticket-to-ride .routes-table {
+.ticket-to-ride .route-length-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5em, 1fr));
+    gap: 0.5rem;
+}
+
+.ticket-to-ride .route-length-cell {
     display: flex;
     flex-direction: column;
-    background: #fff;
-    border: 2px solid #d9b976;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.ticket-to-ride .routes-header,
-.ticket-to-ride .routes-row {
-    display: grid;
-    grid-template-columns: minmax(140px, 1.6fr) repeat(7, 1fr) minmax(80px, 1fr);
+    gap: 0.25rem;
     align-items: center;
-}
-
-.ticket-to-ride .routes-header {
-    background: #2c3e50;
-    color: #fff7e6;
-    font-weight: bold;
-}
-
-.ticket-to-ride .routes-header-cell {
-    padding: 0.5rem 0.4rem;
-    text-align: center;
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-}
-
-.ticket-to-ride .routes-header-cell.player-cell {
-    text-align: left;
-    padding-left: 0.75rem;
-}
-
-.ticket-to-ride .routes-row {
-    border-top: 1px solid #f0e2c0;
-}
-
-.ticket-to-ride .routes-row:nth-child(odd) {
+    padding: 0.45rem 0.3rem;
     background: #fffcf3;
+    border: 1px solid #f0e2c0;
+    border-radius: 6px;
 }
 
-.ticket-to-ride .routes-cell {
-    padding: 0.4rem;
-    text-align: center;
-}
-
-.ticket-to-ride .routes-cell.player-cell {
-    text-align: left;
-    padding-left: 0.75rem;
-}
-
-.ticket-to-ride .routes-cell.subtotal-cell {
+.ticket-to-ride .route-length-label {
+    font-size: 0.75rem;
     font-weight: bold;
     color: #2c3e50;
-    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .ticket-to-ride .route-select {
     width: 100%;
-    max-width: 4rem;
-    padding: 0.3rem 0.4rem;
+    padding: 0.4rem 0.3rem;
     font-family: inherit;
     font-size: 0.95rem;
     text-align: center;
@@ -421,6 +427,42 @@
 .ticket-to-ride .route-select:focus {
     outline: none;
     border-color: #2c3e50;
+}
+
+/* Player card (shared by routes + tickets waves) */
+.ticket-to-ride .player-card {
+    background: #fff;
+    border: 2px solid #d9b976;
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.ticket-to-ride .player-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.ticket-to-ride .player-card-subtotal {
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.ticket-to-ride .player-card-subtotal.positive {
+    background: #e8f5e9;
+    color: #1f6f3a;
+}
+
+.ticket-to-ride .player-card-subtotal.negative {
+    background: #fdecea;
+    color: #a8281a;
 }
 
 /* Simple wave (stations / mountains) */
@@ -532,41 +574,6 @@
     gap: 1rem;
 }
 
-.ticket-to-ride .tickets-player-section {
-    background: #fff;
-    border: 2px solid #d9b976;
-    border-radius: 8px;
-    padding: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.ticket-to-ride .tickets-player-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-.ticket-to-ride .tickets-subtotal {
-    font-weight: bold;
-    font-size: 1.05rem;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-}
-
-.ticket-to-ride .tickets-subtotal.positive {
-    background: #e8f5e9;
-    color: #1f6f3a;
-}
-
-.ticket-to-ride .tickets-subtotal.negative {
-    background: #fdecea;
-    color: #a8281a;
-}
-
 .ticket-to-ride .ticket-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
@@ -658,6 +665,36 @@
 .ticket-to-ride .ticket-card-decrement:hover {
     background: #2c3e50;
     color: #fff;
+}
+
+.ticket-to-ride .ticket-card.ticket-card-reset {
+    background: #fff;
+    color: #6a3a00;
+    border-color: #d9b976;
+    opacity: 0.85;
+}
+
+.ticket-to-ride .ticket-card.ticket-card-reset:hover:not(:disabled) {
+    opacity: 1;
+    background: #fdecd2;
+}
+
+.ticket-to-ride .ticket-card.ticket-card-reset:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.ticket-to-ride .ticket-card-reset-icon {
+    width: 55%;
+    height: auto;
+}
+
+.ticket-to-ride .ticket-card-reset-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: bold;
+    margin-top: 0.15rem;
 }
 
 /* Longest route wave */
@@ -838,16 +875,32 @@
 }
 
 @media (max-width: 600px) {
-    .ticket-to-ride .routes-header,
-    .ticket-to-ride .routes-row {
-        grid-template-columns: minmax(120px, 1fr) repeat(7, minmax(2.4rem, 1fr)) minmax(60px, 1fr);
-        font-size: 0.85rem;
+    .ticket-to-ride .setup-form,
+    .ticket-to-ride .wave-shell,
+    .ticket-to-ride .leaderboard {
+        padding: 0.9rem;
+        margin: 1rem 0;
     }
 
-    .ticket-to-ride .route-select {
-        max-width: 100%;
-        padding: 0.25rem 0.2rem;
-        font-size: 0.85rem;
+    .ticket-to-ride .setup-title {
+        font-size: 1.25rem;
+    }
+
+    .ticket-to-ride .wave-label {
+        font-size: 1.15rem;
+    }
+
+    .ticket-to-ride .route-length-grid {
+        gap: 0.4rem;
+    }
+
+    .ticket-to-ride .route-length-cell {
+        padding: 0.35rem 0.25rem;
+    }
+
+    .ticket-to-ride .ticket-card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+        gap: 0.3rem;
     }
 
     .ticket-to-ride .stepper-row {
@@ -856,6 +909,24 @@
 
     .ticket-to-ride .stepper-subtotal {
         text-align: left;
+    }
+
+    .ticket-to-ride .longest-route-options {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-to-ride .player-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ticket-to-ride .player-row-label {
+        flex: 1 1 auto;
+    }
+
+    .ticket-to-ride .colour-select {
+        align-self: flex-start;
+        margin-left: 1.9em;
     }
 
     .ticket-to-ride .leaderboard-row {

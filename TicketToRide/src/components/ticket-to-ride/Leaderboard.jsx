@@ -27,8 +27,8 @@ function Leaderboard({ players, scores, longestRouteWinnerId, onReset }) {
                   <li><span>Routes</span><strong>{breakdown.routes}</strong></li>
                   <li><span>Stations</span><strong>{breakdown.stations}</strong></li>
                   <li><span>Mountains</span><strong>{breakdown.mountains}</strong></li>
-                  <li><span>Completed</span><strong>+{breakdown.completedTickets}</strong></li>
-                  <li><span>Failed</span><strong className="negative">−{breakdown.failedTickets}</strong></li>
+                  <li><span>Completed</span><strong>{breakdown.completedTickets}</strong></li>
+                  <li><span>Failed</span><strong className="negative">{breakdown.failedTickets}</strong></li>
                   <li><span>Longest</span><strong>{breakdown.longestRoute}</strong></li>
                 </ul>
               </div>

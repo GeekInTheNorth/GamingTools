@@ -23,15 +23,16 @@ function CompletedTicketsWave({ players, scores, updatePlayerScore }) {
         const counts = scores[p.id].completedTickets;
         const subtotal = scoreTicketCounts(counts);
         return (
-          <section key={p.id} className="tickets-player-section">
-            <header className="tickets-player-header">
+          <section key={p.id} className="player-card">
+            <header className="player-card-header">
               <PlayerLabel player={p} />
-              <span className="tickets-subtotal positive">+{subtotal} pts</span>
+              <span className="player-card-subtotal positive">+{subtotal} pts</span>
             </header>
             <TicketCardGrid
               counts={counts}
               onChange={(value, newCount) => handleChange(p.id, value, newCount)}
               mode="positive"
+              onReset={() => updatePlayerScore(p.id, 'completedTickets', {})}
             />
           </section>
         );

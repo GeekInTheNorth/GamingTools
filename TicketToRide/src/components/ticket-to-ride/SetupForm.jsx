@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { PLAYER_COLOURS } from '../../ticket-to-ride/playerColours';
+import ColourSelect from './ColourSelect';
 
 const PLAYER_COUNTS = [2, 3, 4, 5, 6];
 
@@ -94,20 +95,12 @@ function SetupForm({ onStart }) {
                     maxLength={24}
                   />
                 </label>
-                <label className={`player-colour-select${isDup ? ' has-error' : ''}`}>
-                  <span
-                    className="player-colour-swatch"
-                    style={{ background: PLAYER_COLOURS.find(c => c.id === p.colourId).hex }}
-                  />
-                  <select
-                    value={p.colourId}
-                    onChange={e => updatePlayer(i, 'colourId', e.target.value)}
-                  >
-                    {PLAYER_COLOURS.map(c => (
-                      <option key={c.id} value={c.id}>{c.label}</option>
-                    ))}
-                  </select>
-                </label>
+                <ColourSelect
+                  value={p.colourId}
+                  onChange={id => updatePlayer(i, 'colourId', id)}
+                  hasError={isDup}
+                  ariaLabel={`Player ${i + 1} colour`}
+                />
               </div>
             );
           })}
