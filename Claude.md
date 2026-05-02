@@ -21,4 +21,12 @@ Key Facts:
 
 ## Ticket to Ride
 
-This has not been built yet.
+This application provides a scoring system, whether scoring is done throughout the game or at the end, this application will calculate the scores.  This supports Classic and Europe Ticket to Ride games as well as the Asia expansion.
+
+Key Facts:
+
+- Code is managed in the `/TicketToRide` folder`
+- Build assets are are limited to:
+  - ticket-to-ride.css
+  - ticket-to-ride.js
+- Deployed to: https://www.stott.pro/article/ticket-to-ride-score-board

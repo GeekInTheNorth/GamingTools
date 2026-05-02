@@ -1,21 +1,28 @@
 # GamingTools
 
-Embeddable React component that generates a Heat: Pedal to the Metal Legends deck entirely in the browser — no API required.
+Embeddable React components that provide varying tools for board gaming.
 
-## Develop
+- Heat: Pedal to the Metal
+  - Legends deck generator
+- Ticket to Ride
+  - Score board
+
+## Heat
+
+Develop:
 ```
-cd Web
+cd Heat
 npm install
 npm run dev
 ```
 
-## Build
+Build:
 ```
-cd Web
+cd Heat
 npm run build
 ```
 
-The build produces two files in `Web/dist/`:
+The build produces two files in `Heat/dist/`:
 
 - `heat-legends-generator.js` — IIFE bundle (React + component)
 - `heat-legends-generator.css` — component styles
@@ -29,3 +36,31 @@ Drop them onto any page along with a container:
 ```
 
 For manual mounting, call `HeatLegendsGenerator.mount(element)` after the script loads.
+
+## Ticket To Ride
+
+Develop:
+```
+cd TicketToRide
+npm install
+npm run dev
+```
+
+Build:
+```
+cd TicketToRide
+npm run build
+```
+
+The build produces two files in `TicketToRide/dist/`:
+
+- `ticket-to-ride.js` — IIFE bundle (React + component)
+- `ticket-to-ride.css` — component styles
+
+Drop them onto any page along with a container:
+
+```html
+<link rel="stylesheet" href="ticket-to-ride.css">
+<div id="ticket-to-ride-root"></div>
+<script src="ticket-to-ride.js"></script>
+```
