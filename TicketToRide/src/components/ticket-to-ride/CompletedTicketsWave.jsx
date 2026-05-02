@@ -33,6 +33,7 @@ function CompletedTicketsWave({ players, scores, updatePlayerScore }) {
               onChange={(value, newCount) => handleChange(p.id, value, newCount)}
               mode="positive"
               onReset={() => updatePlayerScore(p.id, 'completedTickets', {})}
+              formatPrefix={() => 'Ticket'}
             />
           </section>
         );

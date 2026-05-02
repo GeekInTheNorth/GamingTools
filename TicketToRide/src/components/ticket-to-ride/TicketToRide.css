@@ -367,68 +367,6 @@
     gap: 0.75rem;
 }
 
-.ticket-to-ride .routes-points-key {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-.ticket-to-ride .routes-points-key li {
-    background: #fdecd2;
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #2c3e50;
-}
-
-.ticket-to-ride .route-length-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(5em, 1fr));
-    gap: 0.5rem;
-}
-
-.ticket-to-ride .route-length-cell {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    align-items: center;
-    padding: 0.45rem 0.3rem;
-    background: #fffcf3;
-    border: 1px solid #f0e2c0;
-    border-radius: 6px;
-}
-
-.ticket-to-ride .route-length-label {
-    font-size: 0.75rem;
-    font-weight: bold;
-    color: #2c3e50;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-
-.ticket-to-ride .route-select {
-    width: 100%;
-    padding: 0.4rem 0.3rem;
-    font-family: inherit;
-    font-size: 0.95rem;
-    text-align: center;
-    text-align-last: center;
-    border: 1px solid #d9b976;
-    border-radius: 4px;
-    background: #fff;
-    color: #1a1a1a;
-    cursor: pointer;
-}
-
-.ticket-to-ride .route-select:focus {
-    outline: none;
-    border-color: #2c3e50;
-}
-
 /* Player card (shared by routes + tickets waves) */
 .ticket-to-ride .player-card {
     background: #fff;
@@ -582,7 +520,7 @@
 
 .ticket-to-ride .ticket-card {
     position: relative;
-    aspect-ratio: 3 / 4;
+    min-height: 5.5rem;
     background: #fdecd2;
     border: 2px solid transparent;
     border-radius: 6px;
@@ -594,7 +532,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.25rem;
+    padding: 1.4rem 0.25rem;
     transition: opacity 0.12s, border-color 0.12s, background 0.12s, box-shadow 0.12s;
 }
 
@@ -623,6 +561,7 @@
     line-height: 1;
 }
 
+.ticket-to-ride .ticket-card-prefix,
 .ticket-to-ride .ticket-card-suffix {
     font-size: 0.65rem;
     text-transform: uppercase;
@@ -685,8 +624,8 @@
 }
 
 .ticket-to-ride .ticket-card-reset-icon {
-    width: 55%;
-    height: auto;
+    width: 1.4rem;
+    height: 1.4rem;
 }
 
 .ticket-to-ride .ticket-card-reset-label {
@@ -888,14 +827,6 @@
 
     .ticket-to-ride .wave-label {
         font-size: 1.15rem;
-    }
-
-    .ticket-to-ride .route-length-grid {
-        gap: 0.4rem;
-    }
-
-    .ticket-to-ride .route-length-cell {
-        padding: 0.35rem 0.25rem;
     }
 
     .ticket-to-ride .ticket-card-grid {
