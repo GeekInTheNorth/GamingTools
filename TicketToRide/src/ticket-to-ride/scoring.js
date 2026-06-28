@@ -1,5 +1,5 @@
-export const ROUTE_POINTS = { 1: 1, 2: 2, 3: 4, 4: 7, 5: 10, 6: 15, 8: 21 };
-export const ROUTE_LENGTHS = [1, 2, 3, 4, 5, 6, 8];
+export const ROUTE_POINTS = { 1: 1, 2: 2, 3: 4, 4: 7, 5: 10, 6: 15, 8: 21, 9: 27 };
+export const ROUTE_LENGTHS = [1, 2, 3, 4, 5, 6, 8, 9];
 export const STATION_POINTS = 4;
 export const MOUNTAIN_POINTS = 2;
 export const LONGEST_ROUTE_BONUS = 10;
@@ -8,7 +8,7 @@ export const TICKET_VALUES = Array.from({ length: 25 }, (_, i) => i + 1);
 
 export function createInitialPlayerScore() {
   return {
-    routes: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 8: 0 },
+    routes: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 8: 0, 9: 0 },
     stations: 0,
     mountains: 0,
     completedTickets: {},
