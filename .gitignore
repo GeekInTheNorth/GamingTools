@@ -422,3 +422,6 @@ FodyWeavers.xsd
 
 # AI
 .claude
+
+# MacOs
+.DS_Store
